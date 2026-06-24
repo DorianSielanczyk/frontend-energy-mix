@@ -1,4 +1,19 @@
 .app-container {
-  padding: 20px;
-  font-family: sans-serif;
+  padding: 2rem;
+  font-family: system-ui, sans-serif;
+}
+
+.app-title {
+  text-align: center;
+}
+
+.app-divider {
+  margin: 3rem 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+.app-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
 }

@@ -1,0 +1,67 @@
+.calculator-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.hours-input {
+  padding: 0.5rem;
+  width: 100px;
+  margin-right: 1rem;
+}
+
+.calc-button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.error-text {
+  color: red;
+}
+
+.result-box {
+  background-color: #ecfdf5;
+  border: 1px solid #10b981;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.result-title {
+  color: #065f46;
+  margin: 0 0 1rem 0;
+}
+
+.result-highlight {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #10b981;
+}
+
+.summaries-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.summary-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.clean-energy-header {
+  color: #10b981;
+}
