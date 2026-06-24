@@ -1,7 +1,7 @@
 import type { DailySummaryResponse, BestWindowResponse } from "./types";
 import { handleApiError } from "./apiUtils";
 
-const API_BASE_URL = "https://localhost:7085/api/EnergyMix";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const fetchDailySummaries = async (): Promise<
   DailySummaryResponse[]
