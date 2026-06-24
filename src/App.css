@@ -1,3 +1,9 @@
+body {
+  background-color: #030712;
+  color: #f3f4f6;
+  margin: 0;
+}
+
 .app-container {
   padding: 2rem;
   font-family: system-ui, sans-serif;
@@ -10,7 +16,7 @@
 .app-divider {
   margin: 3rem 0;
   border: none;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #334155;
 }
 
 .app-subtitle {

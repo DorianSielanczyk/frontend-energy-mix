@@ -2,8 +2,10 @@
   max-width: 500px;
   margin: 2rem auto;
   padding: 1.5rem;
-  border: 1px solid #ddd;
+  background-color: #1c202a;
+  border: 1px solid #334155;
   border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
 }
 
 .input-group {
@@ -19,33 +21,47 @@
   padding: 0.5rem;
   width: 100px;
   margin-right: 1rem;
+  background-color: #0f172a;
+  color: white;
+  border: 1px solid #334155;
+  border-radius: 6px;
 }
 
 .calc-button {
   padding: 0.5rem 1rem;
   cursor: pointer;
+  background-color: #6ebef1;
+  color: #030712;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.calc-button:hover {
+  background-color: #55a8db;
 }
 
 .error-text {
-  color: red;
+  color: #ef4444;
 }
 
 .result-box {
-  background-color: #ecfdf5;
-  border: 1px solid #10b981;
+  background-color: #0f172a;
+  border: 1px solid #6ebef1;
   padding: 1rem;
   border-radius: 8px;
 }
 
 .result-title {
-  color: #065f46;
+  color: #6ebef1;
   margin: 0 0 1rem 0;
 }
 
 .result-highlight {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #10b981;
+  color: #6ebef1;
 }
 
 .summaries-container {
@@ -56,12 +72,14 @@
 }
 
 .summary-card {
-  border: 1px solid #ccc;
+  background-color: #1c202a;
+  border: 1px solid #334155;
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
 }
 
 .clean-energy-header {
-  color: #10b981;
+  color: #6ebef1;
 }

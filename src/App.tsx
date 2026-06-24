@@ -7,14 +7,18 @@ function App() {
     <div className="app-container">
       <h1 className="app-title">UK Energy Mix Dashboard</h1>
 
-      <ChargingCalculator />
+      <div className="dashboard-layout">
+        <aside className="sidebar">
+          <ChargingCalculator />
+        </aside>
 
-      <hr className="app-divider" />
-
-      <h2 className="app-subtitle">
-        Prognoza Miksu Energetycznego na najbliższe dni
-      </h2>
-      <DailySummaries />
+        <main className="main-content">
+          <h2 className="app-subtitle">
+            Prognoza Miksu Energetycznego na najbliższe dni
+          </h2>
+          <DailySummaries />
+        </main>
+      </div>
     </div>
   );
 }
