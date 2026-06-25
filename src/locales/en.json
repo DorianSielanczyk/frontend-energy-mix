@@ -1,0 +1,36 @@
+{
+  "app": {
+    "title": "UK Energy Mix Dashboard",
+    "subtitle": "Energy Mix Forecast for the coming days",
+    "darkMode": "🌙 Dark Mode",
+    "lightMode": "☀️ Light Mode",
+    "switchLang": "PL"
+  },
+  "calculator": {
+    "title": "Plan EV Charging",
+    "hoursLabel": "Charging time (hours):",
+    "calculateBtn": "Calculate",
+    "loadingBtn": "Searching...",
+    "errorRange": "Enter a full hour between 1 and 6 (no fractions).",
+    "resultTitle": "Optimal window found!",
+    "start": "Start:",
+    "end": "End:",
+    "cleanEnergy": "Average clean energy:"
+  },
+  "summaries": {
+    "loading": "Loading data from the UK grid...",
+    "noData": "No data to display.",
+    "cleanEnergy": "{{percent}}% Clean Energy"
+  },
+  "fuels": {
+    "gas": "Gas",
+    "coal": "Coal",
+    "biomass": "Biomass",
+    "nuclear": "Nuclear",
+    "hydro": "Hydro",
+    "wind": "Wind",
+    "solar": "Solar",
+    "imports": "Imports",
+    "other": "Other"
+  }
+}

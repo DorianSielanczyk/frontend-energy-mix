@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { fetchBestChargingWindow } from "../api";
 import type { BestWindowResponse } from "../types";
 import "../components.css";
@@ -9,13 +10,20 @@ export default function ChargingCalculator() {
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState(false);
 
+  const { t, i18n } = useTranslation();
+
   const handleCalculate = async () => {
     setError("");
     setResult(null);
 
     const hoursNum = Number(hours);
-    if (!hoursNum || hoursNum < 1 || hoursNum > 6) {
-      setError("Podaj prawidłowy czas ładowania (od 1 do 6 godzin).");
+    if (
+      !hoursNum ||
+      !Number.isInteger(hoursNum) ||
+      hoursNum < 1 ||
+      hoursNum > 6
+    ) {
+      setError(t("calculator.errorRange"));
       return;
     }
 
@@ -31,7 +39,9 @@ export default function ChargingCalculator() {
   };
 
   const formatDate = (isoString: string) => {
-    return new Date(isoString).toLocaleString("pl-PL", {
+    const locale = i18n.language === "pl" ? "pl-PL" : "en-GB";
+
+    return new Date(isoString).toLocaleString(locale, {
       weekday: "short",
       day: "numeric",
       month: "short",
@@ -42,14 +52,15 @@ export default function ChargingCalculator() {
 
   return (
     <div className="calculator-container">
-      <h2>Zaplanuj ładowanie EV</h2>
+      <h2>{t("calculator.title")}</h2>
 
       <div className="input-group">
-        <label className="input-label">Czas ładowania (godziny):</label>
+        <label className="input-label">{t("calculator.hoursLabel")}</label>
         <input
           type="number"
           min="1"
           max="6"
+          step="1"
           value={hours}
           onChange={(e) =>
             setHours(e.target.value ? Number(e.target.value) : "")
@@ -61,7 +72,7 @@ export default function ChargingCalculator() {
           disabled={loading}
           className="calc-button"
         >
-          {loading ? "Szukam..." : "Oblicz"}
+          {loading ? t("calculator.loadingBtn") : t("calculator.calculateBtn")}
         </button>
       </div>
 
@@ -69,15 +80,16 @@ export default function ChargingCalculator() {
 
       {result && (
         <div className="result-box">
-          <h3 className="result-title">Optymalne okno znalezione!</h3>
+          <h3 className="result-title">{t("calculator.resultTitle")}</h3>
           <p>
-            <strong>Start:</strong> {formatDate(result.startTime)}
+            <strong>{t("calculator.start")}</strong>{" "}
+            {formatDate(result.startTime)}
           </p>
           <p>
-            <strong>Koniec:</strong> {formatDate(result.endTime)}
+            <strong>{t("calculator.end")}</strong> {formatDate(result.endTime)}
           </p>
           <p className="result-highlight">
-            Średnia czystej energii: {result.averageCleanEnergyPercentage}%
+            {t("calculator.cleanEnergy")} {result.averageCleanEnergyPercentage}%
           </p>
         </div>
       )}

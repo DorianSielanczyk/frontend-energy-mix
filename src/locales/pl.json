@@ -1,0 +1,36 @@
+{
+  "app": {
+    "title": "Panel miksu energetycznego w Wielkiej Brytanii",
+    "subtitle": "Prognoza Miksu Energetycznego na najbliższe dni",
+    "darkMode": "🌙 Tryb Ciemny",
+    "lightMode": "☀️ Tryb Jasny",
+    "switchLang": "EN"
+  },
+  "calculator": {
+    "title": "Zaplanuj ładowanie EV",
+    "hoursLabel": "Czas ładowania (godziny):",
+    "calculateBtn": "Oblicz",
+    "loadingBtn": "Szukam...",
+    "errorRange": "Podaj pełną godzinę z przedziału 1-6 (bez ułamków).",
+    "resultTitle": "Optymalne okno znalezione!",
+    "start": "Start:",
+    "end": "Koniec:",
+    "cleanEnergy": "Średnia czystej energii:"
+  },
+  "summaries": {
+    "loading": "Ładowanie danych z brytyjskiej sieci...",
+    "noData": "Brak danych do wyświetlenia.",
+    "cleanEnergy": "{{percent}}% Czystej Energii"
+  },
+  "fuels": {
+    "gas": "Gaz",
+    "coal": "Węgiel",
+    "biomass": "Biomasa",
+    "nuclear": "Atom",
+    "hydro": "Woda",
+    "wind": "Wiatr",
+    "solar": "Słońce",
+    "imports": "Import",
+    "other": "Inne"
+  }
+}

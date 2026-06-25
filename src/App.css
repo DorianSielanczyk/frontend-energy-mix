@@ -33,13 +33,37 @@ body.light-theme .app-divider {
   border-top: 1px solid #cbd5e1;
 }
 
-.theme-toggle-btn {
+.theme-toggle-btn:hover {
+  background-color: #334155;
+  box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .theme-toggle-btn {
+  color: #0f172a;
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .theme-toggle-btn:hover {
+  background-color: #f8fafc;
+  box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.15);
+}
+
+.top-controls {
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
+  display: flex;
+  gap: 1rem;
   z-index: 1000;
+}
+
+.theme-toggle-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-width: 170px;
   gap: 0.5rem;
   padding: 0.6rem 1.2rem;
   font-size: 0.95rem;
@@ -53,21 +77,6 @@ body.light-theme .app-divider {
   transition: all 0.3s ease;
 }
 
-.theme-toggle-btn:hover {
-  background-color: #334155;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.6);
-}
-
-body.light-theme .theme-toggle-btn {
-  color: #0f172a;
-  background-color: #ffffff;
-  border-color: #cbd5e1;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .theme-toggle-btn:hover {
-  background-color: #f8fafc;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.15);
+.lang-btn {
+  min-width: 90px;
 }

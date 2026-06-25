@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import type { DailySummaryResponse } from "../types";
 import { fetchDailySummaries } from "../api";
 import { ClipLoader } from "react-spinners";
-import { CHART_COLORS, FUEL_TRANSLATIONS } from "../chartConfig";
+import { CHART_COLORS } from "../chartConfig";
 import "../components.css";
 
 export default function DailySummaries() {
+  const { t, i18n } = useTranslation();
   const [summaries, setSummaries] = useState<DailySummaryResponse[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,25 +23,29 @@ export default function DailySummaries() {
     return (
       <div className="loading-container">
         <ClipLoader color="#007bff" size={40} />
-        <p>Ładowanie danych z brytyjskiej sieci...</p>
+        <p>{t("summaries.loading")}</p>
       </div>
     );
   }
 
-  if (summaries.length === 0) return <p>Brak danych do wyświetlenia.</p>;
+  if (summaries.length === 0) return <p>{t("summaries.noData")}</p>;
 
   return (
     <div className="summaries-container">
       {summaries.map((summary, index) => {
         const chartData = Object.entries(summary.averageGenerationByFuel).map(
           ([name, value]) => ({
-            name: FUEL_TRANSLATIONS[name.toLowerCase()] || name,
+            name: t(`fuels.${name.toLowerCase()}`, { defaultValue: name }),
             value,
           }),
         );
 
         const dateObj = new Date(summary.date);
-        const dateLabel = dateObj.toLocaleDateString("pl-PL", {
+
+        const currentLocale = (i18n.language || "pl").startsWith("pl")
+          ? "pl-PL"
+          : "en-GB";
+        const dateLabel = dateObj.toLocaleDateString(currentLocale, {
           weekday: "long",
           day: "numeric",
           month: "long",
@@ -49,7 +55,9 @@ export default function DailySummaries() {
           <div key={index} className="summary-card">
             <h3>{dateLabel}</h3>
             <h2 className="clean-energy-header">
-              {summary.cleanEnergyPercentage}% Czystej Energii
+              {t("summaries.cleanEnergy", {
+                percent: summary.cleanEnergyPercentage,
+              })}
             </h2>
 
             <PieChart width={300} height={300}>
