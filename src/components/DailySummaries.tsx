@@ -2,22 +2,9 @@ import { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import type { DailySummaryResponse } from "../types";
 import { fetchDailySummaries } from "../api";
+import { ClipLoader } from "react-spinners";
+import { CHART_COLORS, FUEL_TRANSLATIONS } from "../chartConfig";
 import "../components.css";
-
-const COLORS = [
-  "#10B981",
-  "#3B82F6",
-  "#F59E0B",
-  "#EF4444",
-  "#8B5CF6",
-  "#EC4899",
-  "#06B6D4",
-  "#84CC16",
-  "#6366F1",
-  "#F97316",
-  "#14B8A6",
-  "#6B7280",
-];
 
 export default function DailySummaries() {
   const [summaries, setSummaries] = useState<DailySummaryResponse[]>([]);
@@ -30,7 +17,15 @@ export default function DailySummaries() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p>Ładowanie danych z brytyjskiej sieci...</p>;
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <ClipLoader color="#007bff" size={40} />
+        <p>Ładowanie danych z brytyjskiej sieci...</p>
+      </div>
+    );
+  }
+
   if (summaries.length === 0) return <p>Brak danych do wyświetlenia.</p>;
 
   return (
@@ -38,7 +33,7 @@ export default function DailySummaries() {
       {summaries.map((summary, index) => {
         const chartData = Object.entries(summary.averageGenerationByFuel).map(
           ([name, value]) => ({
-            name,
+            name: FUEL_TRANSLATIONS[name.toLowerCase()] || name,
             value,
           }),
         );
@@ -66,7 +61,10 @@ export default function DailySummaries() {
                 dataKey="value"
               >
                 {chartData.map((_entry, i) => (
-                  <Cell key={`cell-${i}`} fill={COLORS[i % COLORS.length]} />
+                  <Cell
+                    key={`cell-${i}`}
+                    fill={CHART_COLORS[i % CHART_COLORS.length]}
+                  />
                 ))}
               </Pie>
               <Tooltip />

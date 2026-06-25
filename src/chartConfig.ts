@@ -1,0 +1,26 @@
+export const CHART_COLORS = [
+  "#10B981",
+  "#3B82F6",
+  "#F59E0B",
+  "#EF4444",
+  "#8B5CF6",
+  "#EC4899",
+  "#06B6D4",
+  "#84CC16",
+  "#6366F1",
+  "#F97316",
+  "#14B8A6",
+  "#6B7280",
+];
+
+export const FUEL_TRANSLATIONS: Record<string, string> = {
+  gas: "Gaz",
+  coal: "Węgiel",
+  biomass: "Biomasa",
+  nuclear: "Atom",
+  hydro: "Woda",
+  wind: "Wiatr",
+  solar: "Słońce",
+  imports: "Import",
+  other: "Inne",
+};
